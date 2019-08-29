@@ -79,6 +79,21 @@ module "assets_tfes_org" {
 	name    = "assets.tfes.org"
 }
 
+resource "cloudflare_record" "atl1_irc_tfes_org_a" {
+	domain  = cloudflare_zone.tfes_org.zone
+	name    = "atl1.irc.tfes.org"
+	type    = "A"
+	ttl     = 86400
+	value   = "144.202.16.200"
+}
+resource "cloudflare_record" "atl1_irc_tfes_org_aaaa" {
+	domain  = cloudflare_zone.tfes_org.zone
+	name    = "atl1.irc.tfes.org"
+	type    = "AAAA"
+	ttl     = 86400
+	value   = "2001:19f0:5401:99c:5400:01ff:febf:8a9b"
+}
+
 module "attachments_forum_pp_tfes_org" {
 	source  = "./palpatine"
 	domain  = cloudflare_zone.tfes_org.zone
@@ -134,6 +149,21 @@ module "forum_tfes_org" {
 	name    = "forum.tfes.org"
 }
 
+resource "cloudflare_record" "fra1_irc_tfes_org_a" {
+	domain  = cloudflare_zone.tfes_org.zone
+	name    = "fra1.irc.tfes.org"
+	type    = "A"
+	ttl     = 86400
+	value   = "199.247.19.83"
+}
+resource "cloudflare_record" "fra1_irc_tfes_org_aaaa" {
+	domain  = cloudflare_zone.tfes_org.zone
+	name    = "fra1.irc.tfes.org"
+	type    = "AAAA"
+	ttl     = 86400
+	value   = "2001:19f0:6c01:bfb:5400:01ff:febf:8a78"
+}
+
 resource "cloudflare_record" "irc_tfes_org" {
 	domain  = cloudflare_zone.tfes_org.zone
 	name    = "irc.tfes.org"
@@ -148,6 +178,21 @@ resource "cloudflare_record" "library_tfes_org" {
 	type    = "CNAME"
 	ttl     = 7200
 	value   = "dsb92oczl4lks.cloudfront.net"
+}
+
+resource "cloudflare_record" "lon1_irc_tfes_org_a" {
+	domain  = cloudflare_zone.tfes_org.zone
+	name    = "lon1.irc.tfes.org"
+	type    = "A"
+	ttl     = 86400
+	value   = "45.77.229.82"
+}
+resource "cloudflare_record" "lon1_irc_tfes_org_aaaa" {
+	domain  = cloudflare_zone.tfes_org.zone
+	name    = "lon1.irc.tfes.org"
+	type    = "AAAA"
+	ttl     = 86400
+	value   = "2001:19f0:7402:17ce:5400:01ff:febf:8a6a"
 }
 
 module "mathtex_tfes_org" {
@@ -165,6 +210,22 @@ resource "cloudflare_record" "minecraft_tfes_org" {
 	value   = "anycraft.stonewall.space"
 }
 
+resource "cloudflare_record" "mon1_ewr1_tfes_org_aaaa" {
+	domain  = cloudflare_zone.tfes_org.zone
+	name    = "mon1.ewr1.tfes.org"
+	type    = "AAAA"
+	ttl     = 86400
+	value   = "2001:19f0:5:5965:5400:01ff:fec3:9fb1"
+}
+
+resource "cloudflare_record" "mon1_par1_tfes_org_aaaa" {
+	domain  = cloudflare_zone.tfes_org.zone
+	name    = "mon1.par1.tfes.org"
+	type    = "AAAA"
+	ttl     = 86400
+	value   = "2001:19f0:6801:1b0f:5400:01ff:fec3:9fa0"
+}
+
 resource "cloudflare_record" "mumble_tfes_org" {
 	domain  = cloudflare_zone.tfes_org.zone
 	name    = "mumble.tfes.org"
@@ -173,11 +234,41 @@ resource "cloudflare_record" "mumble_tfes_org" {
 	value   = "eu3.voice.enjin.com"
 }
 
+resource "cloudflare_record" "ord1_irc_tfes_org_a" {
+	domain  = cloudflare_zone.tfes_org.zone
+	name    = "ord1.irc.tfes.org"
+	type    = "A"
+	ttl     = 86400
+	value   = "144.202.59.88"
+}
+resource "cloudflare_record" "ord1_irc_tfes_org_aaaa" {
+	domain  = cloudflare_zone.tfes_org.zone
+	name    = "ord1.irc.tfes.org"
+	type    = "AAAA"
+	ttl     = 86400
+	value   = "2001:19f0:5c01:1cec:5400:01ff:febf:8a8e"
+}
+
 module "palpatine_tfes_org" {
 	source  = "./palpatine"
 	domain  = cloudflare_zone.tfes_org.zone
 	name    = "palpatine.tfes.org"
 	ttl     = 86400
+}
+
+resource "cloudflare_record" "parallax_tfes_org_a" {
+	domain  = cloudflare_zone.tfes_org.zone
+	name    = "parallax.tfes.org"
+	type    = "A"
+	ttl     = 900
+	value   = "104.237.159.234"
+}
+resource "cloudflare_record" "parallax_tfes_org_aaaa" {
+	domain  = cloudflare_zone.tfes_org.zone
+	name    = "parallax.tfes.org"
+	type    = "AAAA"
+	ttl     = 900
+	value   = "2600:3c01::f03c:91ff:fe84:6ff8"
 }
 
 module "plug_tfes_org" {
