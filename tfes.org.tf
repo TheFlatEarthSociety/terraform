@@ -134,11 +134,43 @@ module "forum_tfes_org" {
 	name    = "forum.tfes.org"
 }
 
+resource "cloudflare_record" "irc_tfes_org" {
+	domain  = cloudflare_zone.tfes_org.zone
+	name    = "irc.tfes.org"
+	type    = "CNAME"
+	ttl     = 86400
+	value   = "irc.r53.tfes.org"
+}
+
+resource "cloudflare_record" "library_tfes_org" {
+	domain  = cloudflare_zone.tfes_org.zone
+	name    = "library.tfes.org"
+	type    = "CNAME"
+	ttl     = 7200
+	value   = "dsb92oczl4lks.cloudfront.net"
+}
+
 module "mathtex_tfes_org" {
 	source  = "./palpatine"
 	domain  = cloudflare_zone.tfes_org.zone
 	name    = "mathtex.tfes.org"
 	proxied = true
+}
+
+resource "cloudflare_record" "minecraft_tfes_org" {
+	domain  = cloudflare_zone.tfes_org.zone
+	name    = "minecraft.tfes.org"
+	type    = "CNAME"
+	ttl     = 86400
+	value   = "anycraft.stonewall.space"
+}
+
+resource "cloudflare_record" "mumble_tfes_org" {
+	domain  = cloudflare_zone.tfes_org.zone
+	name    = "mumble.tfes.org"
+	type    = "CNAME"
+	ttl     = 7200
+	value   = "eu3.voice.enjin.com"
 }
 
 module "palpatine_tfes_org" {
