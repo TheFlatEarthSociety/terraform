@@ -37,6 +37,35 @@ resource "cloudflare_record" "x201709_domainkey_tfes_org_txt_dkim" {
 	value  = "v=DKIM1; h=sha256; k=rsa; s=email; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2L4uT5EP2cwQm0uyAwAUfqZ5KmATPo/5EXbhV8s2wgHh2GfH1ZR/wEzvYW3jejHQeWkzyJuyyxQ/jQcQ7dOFN+Xb5LmI5+aNvZRInkoRB9ttsQ4jvovZF12AHwdVZMDnWIBzedwQ1jP0ZSXr+IhLK1bc1+sLX3XWm8RuC1avPh6lsAC4XuJ/1jfGulUYi54mJuH6RTbOXYmEkAP1M7TLTf9MdT72jHTaVk94QVv0Qud+ORP0FqKzXwRIFURCUVukOCtWr2clCZzWpHPeqjyfWNKRRi2+t2/tGgE9YkbFZh7M405iU1pQ+KoHxvd+i7fo57E2+uCdbfAUy2APN05u8QIDAQAB"
 }
 
+resource "cloudflare_record" "r53_tfes_org_ns1" {
+	domain = cloudflare_zone.tfes_org.zone
+	name   = "r53.tfes.org"
+	type   = "NS"
+	ttl    = 86400
+	value  = "ns-2027.awsdns-61.co.uk"
+}
+resource "cloudflare_record" "r53_tfes_org_ns2" {
+	domain = cloudflare_zone.tfes_org.zone
+	name   = "r53.tfes.org"
+	type   = "NS"
+	ttl    = 86400
+	value  = "ns-455.awsdns-56.com"
+}
+resource "cloudflare_record" "r53_tfes_org_ns3" {
+	domain = cloudflare_zone.tfes_org.zone
+	name   = "r53.tfes.org"
+	type   = "NS"
+	ttl    = 86400
+	value  = "ns-741.awsdns-28.net"
+}
+resource "cloudflare_record" "r53_tfes_org_ns4" {
+	domain = cloudflare_zone.tfes_org.zone
+	name   = "r53.tfes.org"
+	type   = "NS"
+	ttl    = 86400
+	value  = "ns-1384.awsdns-45.org"
+}
+
 module "tfes_org" {
 	source  = "./palpatine"
 	domain  = cloudflare_zone.tfes_org.zone
