@@ -12,7 +12,7 @@ resource "cloudflare_record" "tfes_org_mx" {
 	domain = cloudflare_zone.tfes_org.zone
 	name   = "tfes.org"
 	type   = "MX"
-	ttl    = 900
+	ttl    = 86400
 	value  = "palpatine.tfes.org"
 }
 resource "cloudflare_record" "tfes_org_spf" {
@@ -33,7 +33,7 @@ resource "cloudflare_record" "x201709_domainkey_tfes_org_txt_dkim" {
 	domain = cloudflare_zone.tfes_org.zone
 	name   = "201709._domainkey.tfes.org"
 	type   = "TXT"
-	ttl    = 900
+	ttl    = 86400
 	value  = "v=DKIM1; h=sha256; k=rsa; s=email; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2L4uT5EP2cwQm0uyAwAUfqZ5KmATPo/5EXbhV8s2wgHh2GfH1ZR/wEzvYW3jejHQeWkzyJuyyxQ/jQcQ7dOFN+Xb5LmI5+aNvZRInkoRB9ttsQ4jvovZF12AHwdVZMDnWIBzedwQ1jP0ZSXr+IhLK1bc1+sLX3XWm8RuC1avPh6lsAC4XuJ/1jfGulUYi54mJuH6RTbOXYmEkAP1M7TLTf9MdT72jHTaVk94QVv0Qud+ORP0FqKzXwRIFURCUVukOCtWr2clCZzWpHPeqjyfWNKRRi2+t2/tGgE9YkbFZh7M405iU1pQ+KoHxvd+i7fo57E2+uCdbfAUy2APN05u8QIDAQAB"
 }
 
@@ -226,14 +226,6 @@ resource "cloudflare_record" "mon1_par1_tfes_org_aaaa" {
 	value   = "2001:19f0:6801:1b0f:5400:01ff:fec3:9fa0"
 }
 
-resource "cloudflare_record" "mumble_tfes_org" {
-	domain  = cloudflare_zone.tfes_org.zone
-	name    = "mumble.tfes.org"
-	type    = "CNAME"
-	ttl     = 7200
-	value   = "eu3.voice.enjin.com"
-}
-
 resource "cloudflare_record" "ord1_irc_tfes_org_a" {
 	domain  = cloudflare_zone.tfes_org.zone
 	name    = "ord1.irc.tfes.org"
@@ -253,22 +245,7 @@ module "palpatine_tfes_org" {
 	source  = "./palpatine"
 	domain  = cloudflare_zone.tfes_org.zone
 	name    = "palpatine.tfes.org"
-	ttl     = 86400
-}
-
-resource "cloudflare_record" "parallax_tfes_org_a" {
-	domain  = cloudflare_zone.tfes_org.zone
-	name    = "parallax.tfes.org"
-	type    = "A"
-	ttl     = 900
-	value   = "104.237.159.234"
-}
-resource "cloudflare_record" "parallax_tfes_org_aaaa" {
-	domain  = cloudflare_zone.tfes_org.zone
-	name    = "parallax.tfes.org"
-	type    = "AAAA"
-	ttl     = 900
-	value   = "2600:3c01::f03c:91ff:fe84:6ff8"
+	ttl     = 900 # switch back to 86400 after migration
 }
 
 module "plug_tfes_org" {
