@@ -20,14 +20,14 @@ resource "cloudflare_record" "tfes_org_spf" {
 	name   = "tfes.org"
 	type   = "SPF"
 	ttl    = 900
-	value  = "v=spf1 ip4:173.230.144.109/32 ip6:2600:3c01::f03c:91ff:fe93:a60c/128 -all"
+	value  = "v=spf1 ip4:173.230.144.109 ip6:2600:3c01::f03c:91ff:fe93:a60c ip4:45.77.153.149 ip6:2001:19f0:5:3bfb:5400:2ff:fe3e:4ac5 -all"
 }
 resource "cloudflare_record" "tfes_org_txt_spf" {
 	domain = cloudflare_zone.tfes_org.zone
 	name   = "tfes.org"
 	type   = "TXT"
 	ttl    = 900
-	value  = "v=spf1 ip4:173.230.144.109/32 ip6:2600:3c01::f03c:91ff:fe93:a60c/128 -all"
+	value  = "v=spf1 ip4:173.230.144.109 ip6:2600:3c01::f03c:91ff:fe93:a60c ip4:45.77.153.149 ip6:2001:19f0:5:3bfb:5400:2ff:fe3e:4ac5 -all"
 }
 resource "cloudflare_record" "x201709_domainkey_tfes_org_txt_dkim" {
 	domain = cloudflare_zone.tfes_org.zone
