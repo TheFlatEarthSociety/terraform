@@ -17,7 +17,7 @@ resource "cloudflare_record" "a" {
 	name    = var.name
 	type    = "A"
 	ttl     = var.proxied ? null : var.ttl
-	value   = "173.230.144.109"
+	value   = "45.77.153.149"
 	proxied = var.proxied
 }
 resource "cloudflare_record" "aaaa" {
@@ -25,6 +25,6 @@ resource "cloudflare_record" "aaaa" {
 	name    = var.name
 	type    = "AAAA"
 	ttl     = var.proxied ? null : var.ttl
-	value   = "2600:3c01::f03c:91ff:fe93:a60c"
+	value   = "2001:19f0:5:3bfb:5400:2ff:fe3e:4ac5"
 	proxied = var.proxied
 }
