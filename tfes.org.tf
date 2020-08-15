@@ -280,6 +280,12 @@ module "wiki_tfes_org" {
 	name    = "wiki.tfes.org"
 }
 
+module "wiki-test_tfes_org" {
+	source  = "./palpatine"
+	domain  = cloudflare_zone.tfes_org.zone
+	name    = "wiki-test.tfes.org"
+}
+
 module "www_blanko_tfes_org" {
 	source  = "./palpatine"
 	domain  = cloudflare_zone.tfes_org.zone
