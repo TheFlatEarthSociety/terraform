@@ -164,6 +164,13 @@ resource "cloudflare_record" "fra1_irc_tfes_org_aaaa" {
 	value   = "2001:19f0:6c01:bfb:5400:01ff:febf:8a78"
 }
 
+module "game1_ams1_tfes_org" {
+	source  = "./game1.ams1.tfes.org"
+	domain  = cloudflare_zone.tfes_org.zone
+	name    = "game1.ams1.tfes.org"
+	ttl     = 86400
+}
+
 resource "cloudflare_record" "irc_tfes_org" {
 	domain  = cloudflare_zone.tfes_org.zone
 	name    = "irc.tfes.org"
@@ -202,12 +209,10 @@ module "mathtex_tfes_org" {
 	proxied = true
 }
 
-resource "cloudflare_record" "minecraft_tfes_org" {
+module "minecraft_tfes_org" {
+	source  = "./game1.ams1.tfes.org"
 	domain  = cloudflare_zone.tfes_org.zone
 	name    = "minecraft.tfes.org"
-	type    = "CNAME"
-	ttl     = 86400
-	value   = "anycraft.stonewall.space"
 }
 
 resource "cloudflare_record" "mon1_ewr1_tfes_org_aaaa" {
@@ -245,7 +250,7 @@ module "palpatine_tfes_org" {
 	source  = "./palpatine"
 	domain  = cloudflare_zone.tfes_org.zone
 	name    = "palpatine.tfes.org"
-	ttl     = 900 # switch back to 86400 after migration
+	ttl     = 86400
 }
 
 module "plug_tfes_org" {
